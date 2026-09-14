@@ -11,6 +11,10 @@ Modo "antes de enseñar". El proyecto ya existe; aquí no se rediseña nada, se 
 
 Invoca `lanzamiento` con el argumento recibido si lo hay. Si ya existe `docs/auditoria-lanzamiento.md`, la skill hace diff contra él. Arregla por prioridad: seguridad → roto → legal → SEO → pulido.
 
+## 1b. Revisión de interfaz (solo webs)
+
+Invoca `web-design-guidelines` sobre los `*.html` y el CSS principal. Devuelve hallazgos en formato `archivo:línea`. Arregla los de accesibilidad y los que rompan en móvil; el resto va al informe como pulido. Si el usuario limitó la auditoría a `seguridad` o `tecnico`, sáltate este paso.
+
 ## 2. Documentos de entrega
 
 Invoca `entrega-cliente`. Si `LEEME.md`, `MENSAJE.md` o `CLAUDE.md` ya existen, **actualízalos**, no los reescribas: cambia la tabla Real/Inventado con lo que se haya confirmado desde la última vez y añade la fecha al estado comercial.

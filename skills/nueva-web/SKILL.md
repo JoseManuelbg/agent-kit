@@ -55,6 +55,16 @@ Rutas **relativas** (`assets/estilos.css`): la web se abre con doble clic y func
 8. Abre `index.html`, comprueba consola limpia, 400 px sin scroll horizontal, cinta de aviso visible, enlaces `tel:`/WhatsApp apuntando a placeholder (no a un número real inventado).
 9. `git init`, primer commit `Maqueta inicial de {{NEGOCIO}}`. Sin push.
 
+## Modo completar (proyecto existente)
+
+Si la carpeta ya tiene proyecto, no se genera desde cero: se pasa `referencias/inventario.md`, se marca qué hay y qué falta, y **solo se crean los archivos que faltan**, adaptados a lo que ya existe:
+
+- Respeta el linaje de rutas del proyecto (`assets/css/` + `assets/js/` con rutas absolutas, o `assets/` plano con relativas). Las plantillas se ajustan al copiarlas, no al revés.
+- Las páginas nuevas (`404.html`, `gracias.html`, `privacidad.html`) usan las clases y el CSS que ya hay. Si no existe una clase equivalente (`.pagina-texto`, `.pendiente`, `.aviso-maqueta`), se añade ese bloque al CSS existente al final, con su comentario de sección.
+- Nunca sobrescribas un archivo que existe. Si está a medias (un `_headers` sin CSP, un `sitemap.xml` sin todas las páginas), edítalo y di qué has añadido.
+- Migrar contenido hardcodeado a `datos.js`, quitar un tercero o cambiar rutas son cambios gordos: se proponen, no se hacen de paso.
+- La salida es la tabla del inventario más la lista de lo creado y lo que queda para el usuario o el cliente.
+
 ## Lo que NO hace esta skill
 
 - No diseña: deja tokens neutros y estructura sólida. El diseño lo hace `impeccable` después (`/empezar` fase 3).
@@ -65,4 +75,5 @@ Rutas **relativas** (`assets/estilos.css`): la web se abre con doble clic y func
 
 - `referencias/brief-web.md` y `brief-api.md`: árboles de preguntas para `grilling`.
 - `referencias/api.md`: scaffold equivalente para APIs Node.
+- `referencias/inventario.md`: qué tiene que haber en un proyecto terminado y cómo detectarlo. Base del modo completar y del modo adoptar de `/empezar`.
 - Proyectos de origen de estas convenciones: ver `rules/privado.md`.

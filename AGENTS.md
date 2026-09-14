@@ -25,10 +25,12 @@ Todavía no hay adaptador. Copia `skills/*` a la carpeta de skills de tu herrami
 | `impeccable` | Diseño de interfaz (externa). Sus subagentes están en `agents/`. |
 | `grilling` / `grill-me` | Entrevista por rondas para cerrar decisiones (externa, MIT). `/empezar` la usa con los árboles de `nueva-web/referencias/`. |
 | `thermo-nuclear-code-quality-review` | Revisión de mantenibilidad muy estricta (externa). Para APIs, de tarde en tarde. |
+| `motion-design`, `web-animation-design` | Criterio de animación (externas). Se cargan solas al trabajar movimiento. Vanilla-friendly. |
+| `web-design-guidelines` | Auditoría de UI contra las guías de Vercel (externa). `/entregar` la usa en webs. |
 
 ## Comandos
 
 | Comando | Para qué |
 |---|---|
-| `/empezar [web\|api] [nombre]` | Orquesta el arranque: brief → scaffold → diseño → auditoría → entrega. Para entre fases. Solo en carpeta vacía. |
+| `/empezar [web\|api] [nombre]` | Orquesta el arranque: brief → scaffold → diseño → auditoría → entrega. Para entre fases. En proyecto existente: inventario (`nueva-web/referencias/inventario.md`), completa lo que falta sin tocar lo que hay, y sigue por la fase que toque. |
 | `/entregar [categoría]` | Antes de enseñar o subir: `lanzamiento` + `entrega-cliente` + comprobación de privacidad del repo. |

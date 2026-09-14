@@ -11,8 +11,8 @@ Después quiso algo "como [ECC](https://github.com/affaan-m/ecc) pero a menor es
 ## Estado
 
 - Skills propias: `lanzamiento` (4 checklists, ~110 items), `ui-recursos`, `nueva-web` (scaffold + plantillas + referencias de brief y API, extraído de la-yedra, la-carpanta, rg-brenes, ar-centro-belleza, apiZonalytic e incidenciasApi el 14/09/2026) y `entrega-cliente` (LEEME/MENSAJE/CLAUDE.md).
-- Skills externas copiadas literales: `grilling` + `grill-me` (Matt Pocock), `thermo-nuclear-code-quality-review` (Cursor), `impeccable` (con sus 4 subagentes en `agents/`).
-- Comandos: `/empezar` (orquesta arranque en 6 fases, para entre fases) y `/entregar` (auditoría + documentos + privacidad del repo).
+- Skills externas copiadas literales: `grilling` + `grill-me` (Matt Pocock), `thermo-nuclear-code-quality-review` (Cursor), `motion-design` (LottieFiles), `web-animation-design` y `web-design-guidelines` (Vercel), `impeccable` (con sus 4 subagentes en `agents/`).
+- Comandos: `/empezar` (orquesta arranque en 6 fases, para entre fases; en proyecto existente hace inventario con `nueva-web/referencias/inventario.md` y completa lo que falta sin sobrescribir) y `/entregar` (auditoría + `web-design-guidelines` + documentos + privacidad del repo).
 - Tres modos de trabajo documentados en README: arranque (flujo completo), cambio pequeño (sin skill), antes de enseñar (`/entregar`). El usuario hace muchos cambios pequeños, no uno gordo: el flujo completo NO se aplica a cambios.
 - Estructura: `skills/`, `rules/`, `agents/`, `commands/`, `.claude-plugin/`.
 - `install.ps1` / `install.sh` con modo enlace (junction/symlink) y modo copia, más desinstalación. Las reglas se importan en `~/.claude/CLAUDE.md` con líneas `@ruta`.
@@ -30,7 +30,7 @@ Decisiones tomadas:
 1. Hook en `settings.json` (Stop o PreToolUse de `git commit`) que compruebe que `MENSAJE.md` está en `.gitignore` y que no hay secretos. Es lo único que protege el modo "cambio pequeño".
 2. `lanzamiento`: añadir verificación real (abrir la web, captura a 400 px y escritorio, consola, enlaces). Hoy es una lista que se lee, no una prueba que se pasa.
 3. `testing-api`: tests mínimos `node --test` + supertest. La base ya está en `nueva-web/referencias/api.md`; ninguna API real tiene tests.
-4. Skills de UI/animación, evaluadas el 14/09/2026 y todas válidas para vanilla: Anthropic `frontend-design`, Vercel `web-design-guidelines`, LottieFiles `motion-design-skill`, `web-animation-design` (vercel-labs/open-agents), GSAP (MengTo/Skills). Descartadas por stack: `ui-ux-pro-max` (Tailwind por defecto, Python), `taste-skill` (React).
+4. Skills de UI/animación: instaladas `motion-design`, `web-animation-design`, `web-design-guidelines` (14/09/2026). Quedan como opción Anthropic `frontend-design` (solapa con `impeccable`) y GSAP de MengTo/Skills (solo si se sigue usando GSAP). Descartadas por stack: `ui-ux-pro-max` (Tailwind, Python), `taste-skill` (React).
 5. Verificar con WebFetch las librerías "por verificar" de `ui-recursos`.
 6. `diseño`: necesita referencias (webs, capturas, paletas).
 7. Pasar a `agent-kit` tres kits de "10 SKILLS ADRI Y JUANPE": `prospeccion`, `auditoria-negocio`, `instagram-a-web` (adaptado a `datos.js`). `auditoria-seo` se fusiona en `lanzamiento/checklists/seo.md`. `web-scrolling` se descarta (un solo HTML, contradice las convenciones).

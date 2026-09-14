@@ -11,6 +11,8 @@ agent-kit/
 │   ├── ui-recursos/   ← catálogo de librerías UI
 │   ├── impeccable/    ← diseño de interfaz (externa, con sus 4 subagentes en agents/)
 │   ├── grilling/ grill-me/  ← entrevista de decisiones (externa, Matt Pocock, MIT)
+│   ├── motion-design/ web-animation-design/ ← criterio de movimiento y animación (externas, LottieFiles y Vercel)
+│   ├── web-design-guidelines/ ← auditoría de UI contra las guías de Vercel (externa)
 │   └── thermo-nuclear-code-quality-review/ ← revisión dura de mantenibilidad (externa, Cursor)
 ├── rules/             ← convenciones que aplican siempre (comun.md)
 ├── agents/            ← subagentes (los de impeccable)
@@ -54,14 +56,16 @@ Tres modos de trabajo. El flujo completo es solo para arrancar; el día a día n
 
 | Comando | Qué hace |
 |---|---|
-| `/empezar web Nombre` · `/empezar api Nombre` | Arranca un proyecto nuevo con el flujo completo. Solo en carpeta vacía. |
-| `/entregar [seo\|ux\|tecnico\|seguridad]` | Prepara un proyecto existente para enseñarlo o subirlo. |
+| `/empezar web Nombre` · `/empezar api Nombre` | Arranca un proyecto con el flujo completo. En carpeta vacía crea todo; en un proyecto existente hace inventario de lo que falta, lo completa sin tocar lo que hay y sigue por la fase que toque. |
+| `/entregar [seo\|ux\|tecnico\|seguridad]` | Prepara un proyecto existente para enseñarlo o subirlo. Incluye la revisión de UI de `web-design-guidelines`. |
 | `/lanzamiento` | Audita contra los checklists y arregla por prioridad (seguridad → roto → legal → SEO → pulido). |
 | `/nueva-web` | Solo el scaffold, desde `docs/brief.md`. |
 | `/entrega-cliente` | Solo los documentos LEEME / MENSAJE / CLAUDE.md. |
 | `/grill-me` | Entrevista por rondas para cerrar una decisión antes de tocar código. Para cambios que afectan a estructura, no para cambios pequeños. |
 | `/ui-recursos` | Catálogo de librerías UI antes de inventar un efecto. |
 | `/impeccable` | Diseño de interfaz. La usa `/empezar` en la fase 3. |
+| `motion-design`, `web-animation-design` | Se cargan solas al tocar animaciones: timing, easing, qué animar y qué no, `prefers-reduced-motion`. Valen para CSS vanilla. |
+| `/web-design-guidelines archivo` | Revisa HTML/CSS contra más de 100 reglas de accesibilidad y UX, en formato `archivo:línea`. |
 | `/thermo-nuclear-code-quality-review` | Revisión de mantenibilidad muy dura. Para las APIs, de tarde en tarde. |
 
 ## Añadir una skill
@@ -86,7 +90,9 @@ Lo que hace buena una skill no es la redacción sino el **criterio propio** que 
 - [ ] Hook en `settings.json` que compruebe al parar que `MENSAJE.md` está en `.gitignore` y no hay secretos
 - [ ] `lanzamiento`: paso de verificación real (abrir la web, captura a 400 px, consola, enlaces)
 - [ ] `testing-api`: tests mínimos con `node --test` + supertest (la base está en `nueva-web/referencias/api.md`)
-- [ ] Verificar las entradas "por verificar" de `ui-recursos` y añadir skills de UI/animación
+- [x] Skills de UI/animación: `motion-design`, `web-animation-design`, `web-design-guidelines` (14/09/2026)
+- [x] `/empezar` sobre proyecto existente: inventario y completar lo que falta (14/09/2026)
+- [ ] Verificar las entradas "por verificar" de `ui-recursos`
 - [ ] `diseño`: reglas visuales por tipo de negocio (necesita referencias)
 - [ ] Adaptadores Cursor / Codex en `install.ps1 -Target`
 
@@ -96,4 +102,7 @@ Lo que hace buena una skill no es la redacción sino el **criterio propio** que 
 |---|---|---|---|
 | `grilling`, `grill-me` | [mattpocock/skills](https://github.com/mattpocock/skills) | MIT | Copiar el `SKILL.md` de nuevo |
 | `thermo-nuclear-code-quality-review` | [cursor/plugins › cursor-team-kit](https://github.com/cursor/plugins/tree/main/cursor-team-kit) | ver LICENSE del plugin | Copiar el `SKILL.md` de nuevo |
+| `motion-design` | [lottiefiles/motion-design-skill](https://github.com/lottiefiles/motion-design-skill) | MIT | Copiar `skills/motion-design/` de nuevo |
+| `web-animation-design` | [vercel-labs/open-agents](https://github.com/vercel-labs/open-agents/tree/main/.agents/skills/web-animation-design) | ver repo | Copiar `SKILL.md` + `PRACTICAL-TIPS.md` |
+| `web-design-guidelines` | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | MIT | Copiar el `SKILL.md`; las reglas las baja con WebFetch en cada uso |
 | `impeccable` | [impeccable](https://github.com/pbakaus/impeccable) | Apache 2.0 | `npx impeccable` |

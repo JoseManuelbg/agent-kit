@@ -1,19 +1,28 @@
 ---
-description: Arranca un proyecto nuevo (web de negocio local o API Node) con el flujo completo - brief, scaffold, diseño, auditoría y entrega. Para cambios sobre un proyecto existente NO se usa; ahí van /lanzamiento o /entregar.
+description: Arranca un proyecto (web de negocio local o API Node) con el flujo completo - brief, scaffold, diseño, auditoría y entrega. En carpeta vacía crea todo; en un proyecto existente hace inventario de lo que falta respecto a las convenciones, lo completa sin tocar lo que hay, y sigue por la fase que toque. Para un cambio pequeño no se usa.
 argument-hint: "[web|api] [nombre del negocio o de la API]"
 ---
 
 # /empezar $ARGUMENTS
 
-Orquestas el arranque de un proyecto nuevo. Tú no diseñas ni maquetas aquí: llamas a las skills en orden y **paras entre fases** para que el usuario confirme. Cada fase deja un artefacto en disco, así se puede retomar en otra sesión sin repetir nada.
+Orquestas el arranque de un proyecto. Tú no diseñas ni maquetas aquí: llamas a las skills en orden y **paras entre fases** para que el usuario confirme. Cada fase deja un artefacto en disco, así se puede retomar en otra sesión sin repetir nada.
 
 Lee `rules/comun.md` antes de empezar (ya está cargado en las reglas globales). Todo en español de España.
 
-## 0. Comprobaciones
+## 0. Detectar la situación
 
-- Si la carpeta actual tiene `index.html`, `package.json` o `docs/brief.md`, **para**: este comando es para proyectos nuevos. Di qué comando toca (`/lanzamiento` para auditar, `/entregar` para preparar la entrega) y termina.
-- Tipo: `web` o `api`. Si no viene en los argumentos, pregúntalo antes de nada. Si no viene nombre, pídelo en la misma pregunta.
-- Si la carpeta está vacía o solo tiene `.git`, sigue.
+- **Carpeta vacía** (o solo `.git`): modo **nuevo**. Sigue con las fases 1 a 6.
+- **Proyecto existente** (`index.html`, `package.json`, `datos.js`…): modo **adoptar**. Ve al bloque "Modo adoptar" de abajo y luego entra en el flujo por la fase que toque.
+- Tipo: `web` o `api`. Si no viene en los argumentos, dedúcelo de la carpeta; si está vacía, pregúntalo junto con el nombre.
+
+## Modo adoptar (proyecto existente)
+
+1. Recorre el proyecto con `skills/nueva-web/referencias/inventario.md`: detecta el tipo y el linaje de rutas, y marca cada punto ✅ ⚠️ ❌ ➖. Lee los archivos de verdad; no supongas.
+2. Enseña la tabla y las tres listas: lo que completas ahora sin preguntar, lo que necesita decisión (pregunta en bloque, con recomendación), lo que necesita al cliente.
+3. **Para** hasta que el usuario responda.
+4. Completa. Invoca `nueva-web` en modo completar para los archivos que falten; respeta el linaje de rutas y las clases CSS que ya tiene el proyecto. Nunca sobrescribas un archivo existente: si está a medias, edítalo y di qué has añadido.
+5. Si no había `docs/brief.md`, escríbelo con lo que se ha deducido (estado, datos reales/inventados con fuente, decisiones) y marca lo que no se sabe. No hagas la entrevista completa: solo las preguntas cuya respuesta no esté en ningún sitio.
+6. Sigue por la fase que toque. Normalmente **4 (auditoría) y 5 (entrega)**. La fase 3 (diseño) solo si el usuario la pide.
 
 ## 1. Brief (skill `grilling`)
 
@@ -57,6 +66,7 @@ Invoca `entrega-cliente`: genera `LEEME.md`, `MENSAJE.md` (y lo mete en `.gitign
 ## Reglas del orquestador
 
 - Una fase por turno cuando la fase produce algo que el usuario debe ver. No encadenes 1→6 sin parar.
+- En modo adoptar, completar no es rediseñar: si el proyecto tiene otra estructura que funciona, se respeta y se añade lo que falta. Migrar contenido a `datos.js` o cambiar rutas son decisiones del usuario, nunca se hacen de paso.
 - Si el usuario quiere saltarse una fase ("el diseño ya lo tengo"), sáltala y anótalo en `CLAUDE.md` del proyecto.
 - Si una skill no está disponible, dilo y haz la fase a mano siguiendo `rules/comun.md`; no inventes que se ha ejecutado.
 - Nunca inventes teléfono, email, dirección, NIF, GA4 ni testimonios. Va en el brief como pendiente.
