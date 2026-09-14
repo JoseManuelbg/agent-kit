@@ -1,2 +1,5 @@
 .DS_Store
 Thumbs.db
+
+# Contexto privado (clientes, comercial): nunca se sube
+rules/privado.md

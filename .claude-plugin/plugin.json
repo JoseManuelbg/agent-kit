@@ -1,0 +1,8 @@
+{
+  "name": "agent-kit",
+  "version": "0.2.0",
+  "description": "Kit personal de skills, reglas y agentes para webs de negocios locales y APIs Node. Auditoría pre-lanzamiento, recursos UI y convenciones de entrega.",
+  "author": { "name": "José Manuel Babaciu" },
+  "repository": "https://github.com/JoseManuelbg/agent-kit",
+  "keywords": ["skills", "seo", "pre-launch", "ui", "security", "spanish"]
+}

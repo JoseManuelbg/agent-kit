@@ -1,0 +1,14 @@
+{
+  "name": "agent-kit",
+  "owner": { "name": "José Manuel Babaciu" },
+  "metadata": { "description": "Marketplace personal: agent-kit" },
+  "plugins": [
+    {
+      "name": "agent-kit",
+      "source": "./",
+      "description": "Skills, reglas y agentes personales: auditoría pre-lanzamiento, recursos UI, convenciones de entrega a cliente",
+      "version": "0.2.0",
+      "category": "workflow"
+    }
+  ]
+}
