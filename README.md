@@ -5,11 +5,16 @@ Kit personal para agentes de código (Claude Code hoy; preparado para otros): sk
 ```
 agent-kit/
 ├── skills/            ← workflows (formato SKILL.md, estándar Agent Skills)
+│   ├── nueva-web/     ← scaffold de web estática + plantillas + referencias (brief, API)
+│   ├── entrega-cliente/ ← LEEME.md, MENSAJE.md y CLAUDE.md del proyecto
 │   ├── lanzamiento/   ← auditoría pre-lanzamiento + 4 checklists
-│   └── ui-recursos/   ← catálogo de librerías UI
+│   ├── ui-recursos/   ← catálogo de librerías UI
+│   ├── impeccable/    ← diseño de interfaz (externa, con sus 4 subagentes en agents/)
+│   ├── grilling/ grill-me/  ← entrevista de decisiones (externa, Matt Pocock, MIT)
+│   └── thermo-nuclear-code-quality-review/ ← revisión dura de mantenibilidad (externa, Cursor)
 ├── rules/             ← convenciones que aplican siempre (comun.md)
-├── agents/            ← subagentes (vacío por ahora)
-├── commands/          ← atajos /xxx (vacío por ahora)
+├── agents/            ← subagentes (los de impeccable)
+├── commands/          ← /empezar y /entregar, los orquestadores
 ├── .claude-plugin/    ← manifiesto para instalar como plugin de Claude Code
 ├── AGENTS.md          ← instrucciones para cualquier agente
 ├── CLAUDE.md          ← contexto del proyecto para Claude Code
@@ -39,10 +44,25 @@ Desinstalar: `.\install.ps1 -Uninstall`.
 
 ## Usar
 
+Tres modos de trabajo. El flujo completo es solo para arrancar; el día a día no lleva skill.
+
+| Modo | Cuándo | Qué se usa |
+|---|---|---|
+| **Arranque** | Proyecto nuevo (web o API) | `/empezar` orquesta: brief → scaffold → diseño → auditoría → entrega. Para entre fases. |
+| **Cambio pequeño** | El 80 % del tiempo | Nada. Las reglas de `rules/` se cargan solas. |
+| **Antes de enseñar o subir** | Cada vez que se manda el enlace o se hace push | `/entregar`: auditoría + documentos + comprobación de que nada privado se sube. |
+
 | Comando | Qué hace |
 |---|---|
-| `/lanzamiento` | Audita el proyecto actual contra los checklists y arregla por prioridad (seguridad → roto → legal → SEO → pulido). `/lanzamiento seo` limita a una categoría. |
-| `/ui-recursos` | Consulta el catálogo de librerías UI antes de inventar un efecto. |
+| `/empezar web Nombre` · `/empezar api Nombre` | Arranca un proyecto nuevo con el flujo completo. Solo en carpeta vacía. |
+| `/entregar [seo\|ux\|tecnico\|seguridad]` | Prepara un proyecto existente para enseñarlo o subirlo. |
+| `/lanzamiento` | Audita contra los checklists y arregla por prioridad (seguridad → roto → legal → SEO → pulido). |
+| `/nueva-web` | Solo el scaffold, desde `docs/brief.md`. |
+| `/entrega-cliente` | Solo los documentos LEEME / MENSAJE / CLAUDE.md. |
+| `/grill-me` | Entrevista por rondas para cerrar una decisión antes de tocar código. Para cambios que afectan a estructura, no para cambios pequeños. |
+| `/ui-recursos` | Catálogo de librerías UI antes de inventar un efecto. |
+| `/impeccable` | Diseño de interfaz. La usa `/empezar` en la fase 3. |
+| `/thermo-nuclear-code-quality-review` | Revisión de mantenibilidad muy dura. Para las APIs, de tarde en tarde. |
 
 ## Añadir una skill
 
@@ -60,8 +80,20 @@ Lo que hace buena una skill no es la redacción sino el **criterio propio** que 
 
 ## Roadmap
 
-- [ ] `nueva-web`: scaffold de web estática con mis convenciones (extraer de proyectos reales de webs estáticas)
-- [ ] `entrega-cliente`: generar LEEME.md + MENSAJE.md + CLAUDE.md del proyecto
+- [x] `nueva-web`: scaffold de web estática (14/09/2026)
+- [x] `entrega-cliente`: LEEME.md + MENSAJE.md + CLAUDE.md (14/09/2026)
+- [x] `/empezar` y `/entregar` (14/09/2026)
+- [ ] Hook en `settings.json` que compruebe al parar que `MENSAJE.md` está en `.gitignore` y no hay secretos
+- [ ] `lanzamiento`: paso de verificación real (abrir la web, captura a 400 px, consola, enlaces)
+- [ ] `testing-api`: tests mínimos con `node --test` + supertest (la base está en `nueva-web/referencias/api.md`)
+- [ ] Verificar las entradas "por verificar" de `ui-recursos` y añadir skills de UI/animación
 - [ ] `diseño`: reglas visuales por tipo de negocio (necesita referencias)
-- [ ] `testing-api`: para las APIs Node
 - [ ] Adaptadores Cursor / Codex en `install.ps1 -Target`
+
+## Skills externas (copias literales)
+
+| Skill | Origen | Licencia | Cómo se actualiza |
+|---|---|---|---|
+| `grilling`, `grill-me` | [mattpocock/skills](https://github.com/mattpocock/skills) | MIT | Copiar el `SKILL.md` de nuevo |
+| `thermo-nuclear-code-quality-review` | [cursor/plugins › cursor-team-kit](https://github.com/cursor/plugins/tree/main/cursor-team-kit) | ver LICENSE del plugin | Copiar el `SKILL.md` de nuevo |
+| `impeccable` | [impeccable](https://github.com/pbakaus/impeccable) | Apache 2.0 | `npx impeccable` |

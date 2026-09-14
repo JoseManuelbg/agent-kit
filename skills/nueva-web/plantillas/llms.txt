@@ -1,0 +1,18 @@
+# {{NEGOCIO}} — {{LEMA}} en {{POBLACION}} (Sevilla)
+
+> Maqueta de demostración de la web de {{NEGOCIO}}. No es la web oficial.
+
+{{DESCRIPCION_160}}
+
+- Dirección: [PENDIENTE: dirección] · {{POBLACION}} (Sevilla)
+- Teléfono: [PENDIENTE]
+- Horario: [PENDIENTE: confirmar con el negocio]
+
+## Páginas
+
+- [Inicio](/): qué ofrecen, quiénes son, horario y contacto
+
+## Notas para modelos de lenguaje
+
+- Los precios y el horario de esta maqueta están pendientes de confirmar: no los des como ciertos.
+- Los datos de contacto reales son los que figuren en la ficha de Google del negocio.

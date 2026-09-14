@@ -1,0 +1,203 @@
+/* ==========================================================================
+   {{NEGOCIO}} — hoja de estilos
+   --------------------------------------------------------------------------
+   Contraste comprobado (anotar aquí cada par nuevo, objetivo AA 4.5:1 mínimo):
+     --tinta sobre --papel: [PENDIENTE: calcular]
+     --acento sobre --papel: [PENDIENTE: calcular]
+
+   Índice
+   00 · Tipografías
+   01 · Variables
+   02 · Base
+   03 · Cabecera y navegación
+   04 · Botones
+   05 · Héroe
+   06 · Secciones, rejillas y tarjetas
+   07 · Horario, estado y contacto
+   08 · Pie
+   09 · Cinta de aviso de maqueta
+   10 · Marcadores: pendiente y foto
+   11 · Aparición al hacer scroll
+   12 · Páginas de texto (legal, 404, gracias)
+   13 · Barra fija de acción en móvil
+   14 · Accesibilidad
+   ========================================================================== */
+
+/* ---- 00 · Tipografías ----------------------------------------------------
+   Autoalojadas, no por CDN: RGPD (no se entrega la IP del visitante a Google),
+   velocidad (sin DNS + TLS a otro dominio) y que no dependa de nadie. -------- */
+@import url("fuentes/fuentes.css");
+
+/* ---- 01 · Variables ------------------------------------------------------ */
+:root {
+  /* La tinta nunca es negro puro; el fondo nunca es blanco puro. */
+  --papel: {{COLOR_FONDO}};
+  --papel-hundido: color-mix(in srgb, var(--papel) 94%, var(--tinta));
+  --tinta: #26221D;
+  --tinta-media: #5B554C;
+  --acento: {{COLOR_ACENTO}};
+  --acento-oscuro: color-mix(in srgb, var(--acento) 80%, black);
+  --sobre-acento: #FFFFFF;
+  --linea: color-mix(in srgb, var(--tinta) 15%, var(--papel));
+
+  --serif: "{{SERIF}}", Georgia, "Times New Roman", serif;
+  --sans: "{{SANS}}", "Segoe UI", system-ui, sans-serif;
+
+  /* Escala fluida: móvil → escritorio sin media queries en cada título. */
+  --t-1: clamp(0.9rem, 0.85rem + 0.2vw, 1rem);
+  --t0:  clamp(1.0625rem, 1rem + 0.3vw, 1.125rem);
+  --t1:  clamp(1.25rem, 1.1rem + 0.7vw, 1.6rem);
+  --t2:  clamp(1.7rem, 1.4rem + 1.6vw, 2.5rem);
+  --t3:  clamp(2.3rem, 1.8rem + 3vw, 4rem);
+
+  --ancho: 1080px;
+  --radio: 4px;
+  --e1: 0.5rem; --e2: 1rem; --e3: 1.5rem; --e4: 2.5rem; --e5: 4rem; --e6: 6rem;
+}
+
+/* ---- 02 · Base ------------------------------------------------------------ */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--sans);
+  font-size: var(--t0);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.15; margin: 0 0 var(--e2); }
+h1 { font-size: var(--t3); }
+h2 { font-size: var(--t2); }
+h3 { font-size: var(--t1); }
+p { margin: 0 0 var(--e2); max-width: 65ch; }
+a { color: var(--acento-oscuro); }
+.contenedor { width: min(100% - 2 * var(--e3), var(--ancho)); margin-inline: auto; }
+.contenedor--texto { max-width: 720px; }
+.seccion__sobre {
+  font-size: var(--t-1); letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--tinta-media); margin-bottom: var(--e1);
+}
+
+/* ---- 03 · Cabecera y navegación ------------------------------------------ */
+.cabecera { position: sticky; top: 0; z-index: 50; background: var(--papel); transition: box-shadow .2s; }
+.cabecera--posada { box-shadow: 0 1px 0 var(--linea); }
+.cabecera__interior { display: flex; align-items: center; justify-content: space-between; gap: var(--e2); min-height: 64px; }
+.marca { font-family: var(--serif); font-size: var(--t1); color: var(--tinta); text-decoration: none; }
+.nav { display: flex; gap: var(--e3); }
+.nav a { color: var(--tinta); text-decoration: none; padding: var(--e1) 0; border-bottom: 2px solid transparent; }
+.nav a:hover, .nav a[aria-current="page"] { border-color: var(--acento); }
+.menu-boton { display: none; background: none; border: 1px solid var(--linea); border-radius: var(--radio); font-size: 1.4rem; padding: 0.2em 0.6em; min-height: 44px; cursor: pointer; }
+@media (max-width: 760px) {
+  .menu-boton { display: inline-flex; }
+  .nav { display: none; position: absolute; inset-inline: 0; top: 100%; flex-direction: column; gap: 0; background: var(--papel); border-bottom: 1px solid var(--linea); padding: var(--e2) var(--e3); }
+  .nav--desplegado { display: flex; }
+  .nav a { padding: var(--e2) 0; }
+}
+
+/* ---- 04 · Botones --------------------------------------------------------- */
+.boton {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; padding: 0.7em 1.5em; border-radius: var(--radio);
+  font-weight: 600; text-decoration: none; border: 1px solid transparent; cursor: pointer;
+}
+.boton--lleno { background: var(--acento); color: var(--sobre-acento); }
+.boton--lleno:hover { background: var(--acento-oscuro); }
+.boton--borde { border-color: var(--tinta); color: var(--tinta); }
+.grupo-botones { display: flex; flex-wrap: wrap; gap: var(--e2); }
+
+/* ---- 05 · Héroe ----------------------------------------------------------- */
+.heroe { padding-block: var(--e5) var(--e4); }
+.heroe__titulo { max-width: 16ch; }
+.heroe__entrada { font-size: var(--t1); color: var(--tinta-media); }
+
+/* ---- 06 · Secciones, rejillas y tarjetas ---------------------------------- */
+.seccion { padding-block: var(--e5); }
+.seccion--hundida { background: var(--papel-hundido); }
+.rejilla { display: grid; gap: var(--e3); }
+.rejilla--2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.rejilla--3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+.tarjeta { padding: var(--e3); border: 1px solid var(--linea); border-radius: var(--radio); background: var(--papel); }
+.tarjeta__titulo { margin-bottom: var(--e1); }
+.tarjeta__precio { font-family: var(--serif); font-size: var(--t1); color: var(--acento-oscuro); margin: 0; }
+
+/* ---- 07 · Horario, estado y contacto -------------------------------------- */
+.horario, .contacto { list-style: none; padding: 0; margin: 0; }
+.horario li { display: flex; justify-content: space-between; gap: var(--e2); padding: var(--e1) 0; border-bottom: 1px solid var(--linea); }
+.horario__hoy { font-weight: 700; }
+.horario__hoy .horario__dias::after { content: " · hoy"; color: var(--acento-oscuro); }
+.contacto li { padding: var(--e1) 0; }
+/* Punto de color + palabra: nunca solo el punto. */
+.estado { display: inline-flex; align-items: center; gap: 0.5em; font-weight: 700; }
+.estado__punto { width: 0.7em; height: 0.7em; border-radius: 50%; }
+.estado--abierto .estado__punto { background: #1B7A3D; box-shadow: 0 0 0 3px rgb(27 122 61 / .18); }
+.estado--cerrado .estado__punto { background: var(--tinta-media); }
+
+/* ---- 08 · Pie ------------------------------------------------------------- */
+.pie { border-top: 1px solid var(--linea); padding-block: var(--e4); font-size: var(--t-1); color: var(--tinta-media); }
+.pie__interior { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--e2); }
+.pie p { margin: 0; }
+
+/* ---- 09 · Cinta de aviso de maqueta --------------------------------------- */
+.aviso-maqueta {
+  position: fixed; inset-inline: 0; bottom: 0; z-index: 60;
+  background: #F2C94C; color: #221A08;
+  font-size: 0.82rem; padding: 9px 44px 9px 16px; text-align: center;
+}
+.aviso-maqueta button {
+  position: absolute; right: 8px; top: 50%; translate: 0 -50%;
+  border: 0; background: transparent; font-size: 1.1rem; cursor: pointer; padding: 6px 10px; min-width: 44px; min-height: 36px;
+}
+
+/* ---- 10 · Marcadores: pendiente y foto ------------------------------------
+   Deliberadamente visibles: así no se publica sin querer con datos falsos. -- */
+.pendiente {
+  padding: 0.05em 0.45em; border: 1px dashed #B38600; border-radius: var(--radio);
+  background: #FFF3CD; color: #5C4400; font-weight: 700; font-size: 0.9em;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+.marcador-foto {
+  display: grid; place-items: center; text-align: center;
+  background: repeating-linear-gradient(45deg, var(--papel-hundido) 0 12px, var(--papel) 12px 24px);
+  border: 1px dashed var(--tinta-media); border-radius: var(--radio); color: var(--tinta-media);
+  aspect-ratio: 3 / 2; max-width: 100%;
+}
+.marcador-foto--alto { aspect-ratio: 4 / 5; }
+.marcador-foto--apaisado { aspect-ratio: 3 / 2; }
+.marcador-foto__etiqueta { font-weight: 700; margin: 0; }
+.marcador-foto__medida { font-size: var(--t-1); margin: 0; }
+
+/* ---- 11 · Aparición al hacer scroll ---------------------------------------
+   Sin JS, visible. Solo con JS y sin reduced-motion arranca en opacidad 0. -- */
+.revelar { opacity: 1; }
+@media (prefers-reduced-motion: no-preference) {
+  .js .revelar { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+  .js .revelar--visible { opacity: 1; transform: none; }
+}
+
+/* ---- 12 · Páginas de texto (legal, 404, gracias) -------------------------- */
+.pagina-texto { max-width: 720px; margin-inline: auto; padding-block: var(--e5); }
+.pagina-texto h2 { font-size: var(--t1); margin-top: 2em; }
+.pagina-texto--centro { text-align: center; }
+
+/* ---- 13 · Barra fija de acción en móvil ----------------------------------- */
+.cta-movil { display: none; }
+@media (max-width: 760px) {
+  .cta-movil { display: flex; position: fixed; inset-inline: 0; bottom: 0; z-index: 55; background: var(--acento-oscuro); }
+  .cta-movil a { flex: 1; text-align: center; color: var(--sobre-acento); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 15px 8px; }
+  .cta-movil a + a { border-left: 1px solid rgb(255 255 255 / .2); }
+  .aviso-maqueta { bottom: 50px; }   /* la cinta se apoya encima de la barra */
+  body { padding-bottom: 50px; }     /* que la barra no tape el final */
+}
+
+/* ---- 14 · Accesibilidad --------------------------------------------------- */
+:focus-visible { outline: 3px solid var(--acento); outline-offset: 2px; }
+.saltar { position: absolute; left: -999px; top: 0; background: var(--tinta); color: var(--papel); padding: var(--e1) var(--e2); z-index: 100; }
+.saltar:focus { left: var(--e2); }
+.oculto-visual { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}

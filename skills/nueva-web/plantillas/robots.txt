@@ -1,0 +1,8 @@
+# MAQUETA: bloqueado a los buscadores hasta que sea la web oficial.
+# Al pasar a producción: cambiar a "Allow: /" (borrar el Disallow),
+# quitar los <meta name="robots" content="noindex"> de las páginas
+# y actualizar la URL del sitemap al dominio definitivo.
+User-agent: *
+Disallow: /
+
+Sitemap: {{URL}}/sitemap.xml

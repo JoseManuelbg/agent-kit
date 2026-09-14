@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- [PENDIENTE: dominio definitivo] Actualizar las URL al desplegar en producción.
+     Al añadir o quitar páginas hay que actualizarlo aquí. La 404 no entra. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{{URL}}/</loc>
+    <lastmod>{{FECHA}}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>{{URL}}/privacidad.html</loc>
+    <lastmod>{{FECHA}}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+</urlset>

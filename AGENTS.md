@@ -18,5 +18,17 @@ Todavía no hay adaptador. Copia `skills/*` a la carpeta de skills de tu herrami
 ## Skills disponibles
 | Skill | Para qué |
 |---|---|
+| `nueva-web` | Scaffold de web estática desde `docs/brief.md` con plantillas. `referencias/` trae los árboles de brief (web, API) y el scaffold de API Node. |
+| `entrega-cliente` | Genera o actualiza `LEEME.md`, `MENSAJE.md` (gitignorado) y `CLAUDE.md` del proyecto con la tabla Real/Inventado. |
 | `lanzamiento` | Auditoría pre-lanzamiento de web/API: SEO/GEO, UX, técnico/legal, seguridad. Arregla por prioridad. |
 | `ui-recursos` | Catálogo de librerías UI para efectos e inspiración. Verificar con WebFetch las marcadas "por verificar". |
+| `impeccable` | Diseño de interfaz (externa). Sus subagentes están en `agents/`. |
+| `grilling` / `grill-me` | Entrevista por rondas para cerrar decisiones (externa, MIT). `/empezar` la usa con los árboles de `nueva-web/referencias/`. |
+| `thermo-nuclear-code-quality-review` | Revisión de mantenibilidad muy estricta (externa). Para APIs, de tarde en tarde. |
+
+## Comandos
+
+| Comando | Para qué |
+|---|---|
+| `/empezar [web\|api] [nombre]` | Orquesta el arranque: brief → scaffold → diseño → auditoría → entrega. Para entre fases. Solo en carpeta vacía. |
+| `/entregar [categoría]` | Antes de enseñar o subir: `lanzamiento` + `entrega-cliente` + comprobación de privacidad del repo. |

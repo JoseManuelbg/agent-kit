@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{NEGOCIO}} · {{LEMA}} en {{POBLACION}}</title>
+<meta name="description" content="{{DESCRIPCION_160}}">
+<!-- MAQUETA: quitar esta línea al pasar a producción (y el Disallow de robots.txt). -->
+<meta name="robots" content="noindex, nofollow">
+<!-- [PENDIENTE: dominio definitivo] canonical y og:url cambian al desplegar en producción -->
+<link rel="canonical" href="{{URL}}/">
+<meta name="theme-color" content="{{COLOR_FONDO}}">
+
+<!-- Vista previa al pegar el enlace en WhatsApp. Las rutas TIENEN que ser
+     absolutas: con una ruta relativa WhatsApp no coge la imagen y el enlace
+     sale pelado. Si cambia el dominio, hay que cambiarlas aquí. -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="{{NEGOCIO}}">
+<meta property="og:title" content="{{NEGOCIO}} · {{LEMA}} en {{POBLACION}}">
+<meta property="og:description" content="{{DESCRIPCION_160}}">
+<meta property="og:url" content="{{URL}}/">
+<meta property="og:image" content="{{URL}}/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{OG_ALT}}">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<!-- Tipografías autoalojadas: sin conexión a Google, sin entregar la IP del
+     visitante a un tercero. Se precargan las dos del subconjunto latino. -->
+<link rel="preload" href="assets/fuentes/{{SERIF_ARCHIVO}}.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fuentes/{{SANS_ARCHIVO}}.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/estilos.css?v=1">
+<script>document.documentElement.classList.add("js");</script>
+
+<!-- Solo datos REALES aquí. Lo pendiente no entra en el JSON-LD. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "{{TIPO_SCHEMA}}",
+  "@id": "{{URL}}/#negocio",
+  "name": "{{NEGOCIO}}",
+  "description": "{{DESCRIPCION_160}}",
+  "url": "{{URL}}/",
+  "image": "{{URL}}/assets/img/og.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "{{POBLACION}}",
+    "addressRegion": "Sevilla",
+    "addressCountry": "ES"
+  }
+}
+</script>
+</head>
+<body>
+
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<!-- Cinta de aviso de maqueta: la gobierna AVISO.visible en datos.js -->
+<div class="aviso-maqueta" data-aviso hidden>
+  <span></span>
+  <button type="button" data-cerrar-aviso aria-label="Cerrar aviso">×</button>
+</div>
+
+<header class="cabecera" data-cabecera>
+  <div class="cabecera__interior contenedor">
+    <a class="marca" href="#inicio" data-nombre>{{NEGOCIO}}</a>
+    <button class="menu-boton" type="button" data-menu-boton aria-expanded="false" aria-controls="nav">
+      <span class="oculto-visual">Menú</span><span aria-hidden="true">☰</span>
+    </button>
+    <nav class="nav" id="nav" data-nav aria-label="Principal">
+      <!-- Una entrada por sección. Ajustar al brief. -->
+      <a href="#servicios">{{SECCION_1}}</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+
+  <section class="heroe" id="inicio">
+    <div class="contenedor">
+      <p class="seccion__sobre">{{LEMA}}</p>
+      <h1 class="heroe__titulo revelar" data-hero-titulo>{{HERO_TITULO}}</h1>
+      <p class="heroe__entrada revelar" data-hero-entrada>{{HERO_ENTRADA}}</p>
+      <p class="grupo-botones revelar">
+        <!-- La acción principal del brief. Una sola. -->
+        <a class="boton boton--lleno" data-whatsapp href="#contacto">Escríbenos por WhatsApp</a>
+        <a class="boton boton--borde" data-tel data-tel-texto href="#contacto">Llamar</a>
+      </p>
+      <p class="estado" data-estado hidden></p>
+    </div>
+  </section>
+
+  <section class="seccion" id="servicios">
+    <div class="contenedor">
+      <p class="seccion__sobre">{{SECCION_1}}</p>
+      <h2 class="revelar">{{SECCION_1_TITULO}}</h2>
+      <div class="rejilla rejilla--3" data-servicios>
+        <!-- Se pinta desde DATOS.servicios -->
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion seccion--hundida" id="nosotros">
+    <div class="contenedor contenedor--texto">
+      <p class="seccion__sobre">Nosotros</p>
+      <h2 class="revelar" data-nosotros-titulo>{{NOSOTROS_TITULO}}</h2>
+      <p class="revelar" data-nosotros-texto>{{NOSOTROS_TEXTO}}</p>
+      <!-- Hueco de foto con la medida escrita: se sustituye entero por un <img>. -->
+      <div class="marcador-foto marcador-foto--apaisado revelar">
+        <div>
+          <p class="marcador-foto__etiqueta">Foto: el local</p>
+          <p class="marcador-foto__medida">Horizontal · 1600 × 1067 px</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" id="contacto">
+    <div class="contenedor">
+      <p class="seccion__sobre">Contacto</p>
+      <h2 class="revelar">Dónde estamos y cuándo</h2>
+      <div class="rejilla rejilla--2">
+        <div class="revelar">
+          <h3>Horario</h3>
+          <ul class="horario" data-horario></ul>
+        </div>
+        <div class="revelar">
+          <h3>Contacto</h3>
+          <ul class="contacto">
+            <li><a data-tel data-tel-texto href="#">Teléfono</a></li>
+            <li><a data-whatsapp href="#" target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a data-como-llegar href="#" target="_blank" rel="noopener">Cómo llegar</a></li>
+            <li><a data-instagram href="#" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+          <p data-direccion></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pie">
+  <div class="contenedor pie__interior">
+    <p class="pie__legal">© <span data-anio>2026</span> <span data-nombre>{{NEGOCIO}}</span> · {{POBLACION}} (Sevilla)</p>
+    <p class="pie__enlaces"><a href="privacidad.html">Privacidad</a></p>
+  </div>
+</footer>
+
+<!-- Barra fija de acción en móvil -->
+<nav class="cta-movil" aria-label="Acciones rápidas">
+  <a data-tel href="#">Llamar</a>
+  <a data-whatsapp href="#" target="_blank" rel="noopener">WhatsApp</a>
+</nav>
+
+<script src="assets/datos.js?v=1"></script>
+<script src="assets/app.js?v=1"></script>
+</body>
+</html>

@@ -6,8 +6,8 @@
     {
       "name": "agent-kit",
       "source": "./",
-      "description": "Skills, reglas y agentes personales: auditoría pre-lanzamiento, recursos UI, convenciones de entrega a cliente",
-      "version": "0.2.0",
+      "description": "Skills, reglas y comandos personales: /empezar y /entregar, scaffold de web estática, entrega a cliente, auditoría pre-lanzamiento, recursos UI",
+      "version": "0.3.0",
       "category": "workflow"
     }
   ]

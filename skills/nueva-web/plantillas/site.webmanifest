@@ -1,0 +1,16 @@
+{
+  "name": "{{NEGOCIO}} · {{LEMA}} en {{POBLACION}}",
+  "short_name": "{{NEGOCIO}}",
+  "description": "{{DESCRIPCION_160}}",
+  "lang": "es-ES",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "{{COLOR_FONDO}}",
+  "theme_color": "{{COLOR_ACENTO}}",
+  "icons": [
+    { "src": "/assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/assets/img/icono-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/img/icono-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
