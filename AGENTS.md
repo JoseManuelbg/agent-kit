@@ -4,7 +4,6 @@ Este repo es un kit personal de skills y reglas para agentes de código. Fuente 
 
 - `skills/<nombre>/SKILL.md` — workflows reutilizables en formato Agent Skills (estándar abierto: lo leen Claude Code, Codex, Cursor, OpenCode…). Cada skill tiene frontmatter `name` + `description` y puede traer archivos de referencia en subcarpetas.
 - `rules/*.md` — convenciones que aplican siempre. **Lee `rules/comun.md` antes de tocar nada.**
-- `agents/` — subagentes especializados (por ahora vacío).
 - `commands/` — atajos de comando (por ahora vacío).
 
 ## Si eres Claude Code
@@ -22,7 +21,7 @@ Todavía no hay adaptador. Copia `skills/*` a la carpeta de skills de tu herrami
 | `entrega-cliente` | Genera o actualiza `LEEME.md`, `MENSAJE.md` (gitignorado) y `CLAUDE.md` del proyecto con la tabla Real/Inventado. |
 | `lanzamiento` | Auditoría pre-lanzamiento de web/API: SEO/GEO, UX, técnico/legal, seguridad. Arregla por prioridad. |
 | `ui-recursos` | Catálogo de librerías UI para efectos e inspiración. Verificar con WebFetch las marcadas "por verificar". |
-| `impeccable` | Diseño de interfaz (externa). Sus subagentes están en `agents/`. |
+| `impeccable` | Diseño de interfaz. **No incluida en el kit**: se instala aparte con `npx impeccable`. |
 | `grilling` / `grill-me` | Entrevista por rondas para cerrar decisiones (externa, MIT). `/empezar` la usa con los árboles de `nueva-web/referencias/`. |
 | `thermo-nuclear-code-quality-review` | Revisión de mantenibilidad muy estricta (externa). Para APIs, de tarde en tarde. |
 | `motion-design`, `web-animation-design` | Criterio de animación (externas). Se cargan solas al trabajar movimiento. Vanilla-friendly. |

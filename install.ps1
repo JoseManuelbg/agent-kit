@@ -3,7 +3,7 @@
   Instala agent-kit en Claude Code (Windows).
 
 .DESCRIPTION
-  Modo por defecto (Link): crea junctions de skills/, agents/ y commands/ del repo
+  Modo por defecto (Link): crea junctions de skills/ y commands/ del repo
   dentro de ~/.claude/. Editas en el repo y el cambio es inmediato.
   Modo Copy: copia los archivos (robocopy /MIR). Útil si los enlaces dan problemas.
   Las reglas (rules/*.md) se importan en ~/.claude/CLAUDE.md con líneas "@ruta".
@@ -23,7 +23,7 @@ $ErrorActionPreference = 'Stop'
 $Root = $PSScriptRoot
 $ClaudeDir = Join-Path $HOME '.claude'
 $ClaudeMd = Join-Path $ClaudeDir 'CLAUDE.md'
-$Dirs = @('skills', 'agents', 'commands')
+$Dirs = @('skills', 'commands')   # no hay agents/: el kit no trae subagentes propios
 
 function Is-Junction($path) {
   if (-not (Test-Path $path)) { return $false }
@@ -54,7 +54,7 @@ if ($Uninstall) {
   exit 0
 }
 
-# ---------- Install skills / agents / commands ----------
+# ---------- Install skills / commands ----------
 foreach ($d in $Dirs) {
   $src = Join-Path $Root $d
   $dest = Join-Path $ClaudeDir $d
@@ -92,7 +92,10 @@ $added = 0
 foreach ($r in $ruleFiles) {
   $line = "@$($r.FullName)"
   if ($existing -notcontains $line) {
-    Add-Content -Encoding utf8 $ClaudeMd $line
+    # Add-Content -Encoding utf8 mete BOM en Windows PowerShell 5.1 si el
+    # archivo no existia. El BOM se pega delante del "@" y el import deja de
+    # reconocerse, asi que las reglas no se cargan y nadie se entera.
+    [IO.File]::AppendAllText($ClaudeMd, $line + [Environment]::NewLine, (New-Object Text.UTF8Encoding $false))
     $added++
   }
 }

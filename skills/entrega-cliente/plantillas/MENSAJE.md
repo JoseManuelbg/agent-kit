@@ -18,7 +18,7 @@ Canal: **WhatsApp** al {{CANAL_DESTINO}}. Enlace: {{URL}}
 
 ## El primer mensaje (el enlace VA DENTRO)
 
-Lección AR Centro de Belleza (19/08/2026): un «¿os paso el enlace?» invita al no. El enlace va en el primer mensaje, sin pedir permiso.
+Lección aprendida: un «¿os paso el enlace?» invita al no. El enlace va en el primer mensaje, sin pedir permiso.
 
 > Hola, soy José Manuel, de Regislab, en {{MI_POBLACION}}. Hago webs para negocios de la zona y me he permitido hacer una para {{NEGOCIO}} para que veáis cómo quedaría: {{URL}}
 >
@@ -28,12 +28,11 @@ Sin emojis, sin «¡Hola!» con exclamaciones, sin decir que su web actual es ma
 
 ## Los planes (solo si preguntan precio)
 
-| Plan | Precio | Incluye |
-|---|---|---|
-| Web | {{PRECIO_WEB}} € una vez | La web con sus datos, dominio configurado, alta en Google |
-| Mantenimiento | {{PRECIO_MES}} €/mes | Cambios de precios y horario, fotos nuevas, copia de seguridad |
-
-Decir siempre el mensual primero. El total de golpe asusta; el mes se compara con lo que ya pagan de luz.
+Los precios y la forma de presentarlos **no se escriben en esta plantilla**:
+esta plantilla vive en un repositorio público y el guion comercial no puede
+estar ahí. Van en el `MENSAJE.md` del proyecto, que sí está en `.gitignore`.
+Si no los tienes a mano, pregúntaselos al usuario antes de escribir esta
+sección; no te los inventes.
 
 ## Lo que van a contestar
 
@@ -41,7 +40,6 @@ Decir siempre el mensual primero. El total de golpe asusta; el mes se compara co
 |---|---|
 | «Ya tenemos Instagram» | «Instagram es para quien ya os sigue. La web es para quien os busca en Google y todavía no os conoce.» |
 | «Estos precios no son los nuestros» | «Lo sé, están de muestra y lo pone arriba. Me los pasas y en una hora están cambiados.» |
-| «Mi sobrino me la hace» | «Perfecto, que la haga. Si le sirve la mía de base, se la regalo.» |
 | «Ahora no» | «Sin problema. La dejo publicada un mes por si quieres verla con calma.» |
 | {{OBJECION_PREVISTA}} | {{RESPUESTA}} |
 

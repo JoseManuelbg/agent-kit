@@ -1,7 +1,7 @@
 # Reglas comunes (agent-kit)
 
 Convenciones de José Manuel para cualquier proyecto. Se cargan en todas las sesiones.
-Los datos concretos de clientes y el contexto comercial viven en `rules/privado.md` (ignorado por git).
+Los datos concretos de clientes y el contexto comercial **no están en este repo**, que es público. Si hay un `rules/privado.md` en local (ignorado por git), léelo; si no existe, no lo busques y pregunta al usuario lo que necesites.
 
 ## Quién soy y qué hago
 - Desarrollador. Hago **webs para negocios locales** (restaurantes, tiendas, clínicas) y **APIs Node** internas.

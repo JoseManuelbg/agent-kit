@@ -10,13 +10,14 @@ Después quiso algo "como [ECC](https://github.com/affaan-m/ecc) pero a menor es
 
 ## Estado
 
-- Skills propias: `lanzamiento` (4 checklists, ~110 items), `ui-recursos`, `nueva-web` (scaffold + plantillas + referencias de brief y API, extraído de la-yedra, la-carpanta, rg-brenes, ar-centro-belleza, apiZonalytic e incidenciasApi el 14/09/2026) y `entrega-cliente` (LEEME/MENSAJE/CLAUDE.md).
-- Skills externas copiadas literales: `grilling` + `grill-me` (Matt Pocock), `thermo-nuclear-code-quality-review` (Cursor), `motion-design` (LottieFiles), `web-animation-design` y `web-design-guidelines` (Vercel), `impeccable` (con sus 4 subagentes en `agents/`).
+- Skills propias: `lanzamiento` (4 checklists, ~110 items), `ui-recursos`, `nueva-web` (scaffold + plantillas + referencias de brief y API, extraído de proyectos reales propios el 14/09/2026: dos webs de hostelería, un comercio, un centro de belleza y dos APIs internas) y `entrega-cliente` (LEEME/MENSAJE/CLAUDE.md).
+- Skills externas copiadas literales: `grilling` + `grill-me` (Matt Pocock), `thermo-nuclear-code-quality-review` (Cursor), `motion-design` (LottieFiles), `web-animation-design` y `web-design-guidelines` (Vercel).
+- Dependencia externa **opcional**: `impeccable` (diseño de interfaz). NO va en este repo; se instala aparte con `npx impeccable`, que escribe en `~/.claude`. Si no está instalada, la fase 3 de `/empezar` usa las skills de diseño que sí trae el kit.
 - Comandos: `/empezar` (orquesta arranque en 6 fases, para entre fases; en proyecto existente hace inventario con `nueva-web/referencias/inventario.md` y completa lo que falta sin sobrescribir) y `/entregar` (auditoría + `web-design-guidelines` + documentos + privacidad del repo).
 - Tres modos de trabajo documentados en README: arranque (flujo completo), cambio pequeño (sin skill), antes de enseñar (`/entregar`). El usuario hace muchos cambios pequeños, no uno gordo: el flujo completo NO se aplica a cambios.
-- Estructura: `skills/`, `rules/`, `agents/`, `commands/`, `.claude-plugin/`.
+- Estructura: `skills/`, `rules/`, `commands/`, `.claude-plugin/`. **No hay `agents/`**: el kit no trae subagentes propios.
 - `install.ps1` / `install.sh` con modo enlace (junction/symlink) y modo copia, más desinstalación. Las reglas se importan en `~/.claude/CLAUDE.md` con líneas `@ruta`.
-- `rules/comun.md` está extraído de las convenciones reales de proyectos de webs para negocios locales; los nombres concretos están en `rules/privado.md`.
+- `rules/comun.md` está extraído de las convenciones reales de proyectos de webs para negocios locales. Los nombres de clientes no van en este repo: es público.
 
 Decisiones tomadas:
 - **Solo Claude Code por ahora.** `AGENTS.md` y el parámetro `-Target` quedan preparados para añadir adaptadores (Cursor, Codex) después.

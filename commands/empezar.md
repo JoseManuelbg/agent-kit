@@ -44,7 +44,14 @@ Abre el resultado (o arranca el servidor) y comprueba que carga sin errores de c
 
 ## 3. Diseño (solo web)
 
-Invoca `impeccable` en modo new-work con el brief como dirección y las restricciones del stack: HTML/CSS/JS vanilla, sin CDN, fuentes en `assets/fuentes/`, `prefers-reduced-motion`, móvil primero. Consulta `ui-recursos` si el brief pide efectos, y reimplementa en vanilla lo que sea React.
+Restricciones del stack, pase lo que pase: HTML/CSS/JS vanilla, sin CDN, fuentes en `assets/fuentes/`, `prefers-reduced-motion`, móvil primero.
+
+`impeccable` **no viene en este kit**: es una herramienta externa que se instala aparte con `npx impeccable`. Comprueba si está disponible antes de nombrarla.
+
+- **Si está**: invócala en modo new-work con el brief como dirección.
+- **Si no está**: no te inventes que la has usado. Haz el diseño con lo que sí trae el kit, que es suficiente: `web-design-guidelines` para revisar la interfaz, `motion-design` y `web-animation-design` para el movimiento, y `ui-recursos` para los efectos.
+
+Consulta `ui-recursos` si el brief pide efectos, y reimplementa en vanilla lo que sea React.
 
 No toques `datos.js` para meter contenido: el contenido va en el brief y en `datos.js`, el diseño en `estilos.css` y `app.js`.
 

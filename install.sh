@@ -7,7 +7,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CLAUDE_DIR="$HOME/.claude"
 CLAUDE_MD="$CLAUDE_DIR/CLAUDE.md"
-DIRS=(skills agents commands)
+DIRS=(skills commands)   # no hay agents/: el kit no trae subagentes propios
 MODE=link
 [[ "${1:-}" == "--copy" ]] && MODE=copy
 mkdir -p "$CLAUDE_DIR"

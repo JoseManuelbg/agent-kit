@@ -67,7 +67,7 @@ Si la carpeta ya tiene proyecto, no se genera desde cero: se pasa `referencias/i
 
 ## Lo que NO hace esta skill
 
-- No diseña: deja tokens neutros y estructura sólida. El diseño lo hace `impeccable` después (`/empezar` fase 3).
+- No diseña: deja tokens neutros y estructura sólida. El diseño va después, en la fase 3 de `/empezar`.
 - No escribe `LEEME.md`, `MENSAJE.md` ni `CLAUDE.md`: eso es `entrega-cliente`.
 - No audita: eso es `lanzamiento`.
 
@@ -76,4 +76,4 @@ Si la carpeta ya tiene proyecto, no se genera desde cero: se pasa `referencias/i
 - `referencias/brief-web.md` y `brief-api.md`: árboles de preguntas para `grilling`.
 - `referencias/api.md`: scaffold equivalente para APIs Node.
 - `referencias/inventario.md`: qué tiene que haber en un proyecto terminado y cómo detectarlo. Base del modo completar y del modo adoptar de `/empezar`.
-- Proyectos de origen de estas convenciones: ver `rules/privado.md`.
+- Estas convenciones salen de proyectos reales propios. Los nombres de clientes no van en este repo, que es público.

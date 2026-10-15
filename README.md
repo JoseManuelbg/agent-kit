@@ -9,13 +9,11 @@ agent-kit/
 │   ├── entrega-cliente/ ← LEEME.md, MENSAJE.md y CLAUDE.md del proyecto
 │   ├── lanzamiento/   ← auditoría pre-lanzamiento + 4 checklists
 │   ├── ui-recursos/   ← catálogo de librerías UI
-│   ├── impeccable/    ← diseño de interfaz (externa, con sus 4 subagentes en agents/)
 │   ├── grilling/ grill-me/  ← entrevista de decisiones (externa, Matt Pocock, MIT)
 │   ├── motion-design/ web-animation-design/ ← criterio de movimiento y animación (externas, LottieFiles y Vercel)
 │   ├── web-design-guidelines/ ← auditoría de UI contra las guías de Vercel (externa)
 │   └── thermo-nuclear-code-quality-review/ ← revisión dura de mantenibilidad (externa, Cursor)
 ├── rules/             ← convenciones que aplican siempre (comun.md)
-├── agents/            ← subagentes (los de impeccable)
 ├── commands/          ← /empezar y /entregar, los orquestadores
 ├── .claude-plugin/    ← manifiesto para instalar como plugin de Claude Code
 ├── AGENTS.md          ← instrucciones para cualquier agente
@@ -31,7 +29,7 @@ git clone https://github.com/JoseManuelbg/agent-kit
 cd agent-kit
 .\install.ps1          # Windows   |   ./install.sh en macOS/Linux
 ```
-Crea enlaces `~/.claude/skills → agent-kit/skills` (y agents, commands) e importa `rules/*.md` en `~/.claude/CLAUDE.md`. Editas en el repo y Claude lo ve en la siguiente sesión. Si los enlaces fallan: `.\install.ps1 -Copy`.
+Crea enlaces `~/.claude/skills → agent-kit/skills` (y commands) e importa `rules/*.md` en `~/.claude/CLAUDE.md`. Editas en el repo y Claude lo ve en la siguiente sesión. Si los enlaces fallan: `.\install.ps1 -Copy`.
 
 **Opción B — plugin (para instalar limpio en otro PC sin tocar nada):**
 ```
@@ -63,7 +61,7 @@ Tres modos de trabajo. El flujo completo es solo para arrancar; el día a día n
 | `/entrega-cliente` | Solo los documentos LEEME / MENSAJE / CLAUDE.md. |
 | `/grill-me` | Entrevista por rondas para cerrar una decisión antes de tocar código. Para cambios que afectan a estructura, no para cambios pequeños. |
 | `/ui-recursos` | Catálogo de librerías UI antes de inventar un efecto. |
-| `/impeccable` | Diseño de interfaz. La usa `/empezar` en la fase 3. |
+| `/impeccable` | Diseño de interfaz. **No viene en este kit**: se instala aparte con `npx impeccable`. `/empezar` la usa en la fase 3 si está, y si no tira de `web-design-guidelines` y `motion-design`. |
 | `motion-design`, `web-animation-design` | Se cargan solas al tocar animaciones: timing, easing, qué animar y qué no, `prefers-reduced-motion`. Valen para CSS vanilla. |
 | `/web-design-guidelines archivo` | Revisa HTML/CSS contra más de 100 reglas de accesibilidad y UX, en formato `archivo:línea`. |
 | `/thermo-nuclear-code-quality-review` | Revisión de mantenibilidad muy dura. Para las APIs, de tarde en tarde. |
@@ -105,4 +103,4 @@ Lo que hace buena una skill no es la redacción sino el **criterio propio** que 
 | `motion-design` | [lottiefiles/motion-design-skill](https://github.com/lottiefiles/motion-design-skill) | MIT | Copiar `skills/motion-design/` de nuevo |
 | `web-animation-design` | [vercel-labs/open-agents](https://github.com/vercel-labs/open-agents/tree/main/.agents/skills/web-animation-design) | ver repo | Copiar `SKILL.md` + `PRACTICAL-TIPS.md` |
 | `web-design-guidelines` | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | MIT | Copiar el `SKILL.md`; las reglas las baja con WebFetch en cada uso |
-| `impeccable` | [impeccable](https://github.com/pbakaus/impeccable) | Apache 2.0 | `npx impeccable` |
+| `impeccable` *(no incluida)* | [impeccable](https://github.com/pbakaus/impeccable) | Apache 2.0 | Se instala aparte: `npx impeccable` |
